@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom'
 import styles from './Layout.module.css';
 
 interface LayoutProps {
@@ -10,8 +11,8 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className={styles.container}>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <a href="/">Main</a>
-          <a href="/cart">Cart</a>
+          <Link to='/'>Main</Link>
+          <Link to='/cart'>Cart</Link>
         </nav>
       </header>
       <main className={styles.main}>
