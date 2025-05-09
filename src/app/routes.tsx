@@ -1,16 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import ProductList from '../pages/MainPage.tsx';
-import Cart from '../pages/Cart.tsx';
 import OrderSummary from '../pages/OrderSummary.tsx';
 import OrderConfirmation from '../pages/OrderConfirmation.tsx';
+import CartPage from '../features/cart/pages/CartPage.tsx';
+import ProductListPage from '../features/products/pages/ProductListPage.tsx';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<ProductList />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/order-summary" element={<OrderSummary />} />
-      <Route path="/order-confirmation" element={<OrderConfirmation />} />
+      <Route element={<ProductListPage />} path="/" />
+      <Route element={<CartPage />} path="/cart" />
+      <Route element={<OrderSummary />} path="/order-summary" />
+      <Route element={<OrderConfirmation />} path="/order-confirmation" />
     </Routes>
   );
 };
