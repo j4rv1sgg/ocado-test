@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from './ProductList.module.css'
 import ProductCard from './ProductCard'
 import type { Product } from '../types'
 
@@ -9,7 +9,7 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
-    <div className="product-list">
+    <div className={styles.productList}>
       {products.map(product => (
         <ProductCard key={product.id} product={product} />
       ))}

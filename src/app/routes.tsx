@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import ProductList from '../pages/ProductList.tsx';
+import ProductList from '../pages/MainPage.tsx';
 import Cart from '../pages/Cart.tsx';
 import OrderSummary from '../pages/OrderSummary.tsx';
 import OrderConfirmation from '../pages/OrderConfirmation.tsx';
