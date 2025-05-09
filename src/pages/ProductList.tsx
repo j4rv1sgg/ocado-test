@@ -1,5 +1,12 @@
-const ProductList: React.FC = () => {
-  return <>Product List</>;
+import ProductList from "../features/cart/components/ProductList";
+import { products } from "../features/cart/data/products";
+
+const MainPage: React.FC = () => {
+  return (
+    <>
+      <ProductList products={products}></ProductList>
+    </>
+  );
 };
 
-export default ProductList;
+export default MainPage;
