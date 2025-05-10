@@ -13,8 +13,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className={styles.card}>
         <h3 className={styles.title}>{product.name}</h3>
-        <p className={styles.price}>Price: {product.price.main}.{product.price.fractional} PLN</p>
-        <button className={styles.button} onClick={() => addToCart(product)}>Add to cart</button>
+        <p className={styles.price}>Cena: {product.price.main}.{product.price.fractional} zł</p>
+        <button className={styles.button} onClick={() => addToCart(product)}>Dodaj do koszyka</button>
     </div>
   )
 }

@@ -11,8 +11,8 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className={styles.container}>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <Link to='/'>Main</Link>
-          <Link to='/cart'>Cart</Link>
+          <Link to='/'>Główna</Link>
+          <Link to='/cart'>Koszyk</Link>
         </nav>
       </header>
       <main className={styles.main}>
