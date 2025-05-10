@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 // import OrderSummary from '../pages/OrderSummary.tsx';
 // import OrderConfirmation from '../pages/OrderConfirmation.tsx';
-import CartPage from '../features/cart/pages/CartPage.tsx';
-import ProductListPage from '../features/products/pages/ProductListPage.tsx';
+import CartPage from './pages/CartPage.tsx';
+import ProductListPage from './pages/ProductsPage.tsx';
 
 const AppRoutes = () => {
   return (
