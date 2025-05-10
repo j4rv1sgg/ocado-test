@@ -17,7 +17,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, onChangeQuantity }) => {
     <div className={styles.cartItem}>
       <h3 className={styles.title}>{item.product.name}</h3>
       <p className={styles.price}>
-        {item.product.price.main}.{item.product.price.fractional} PLN x {item.quantity}{' '}
+        {item.product.price.main}.{item.product.price.fractional} zł x {' '}
         <input
           type="number"
           value={item.quantity}
@@ -26,6 +26,10 @@ const CartItem: React.FC<CartItemProps> = ({ item, onChangeQuantity }) => {
           max={99}
           className={styles.input}
         />
+      </p>
+      
+      <p className={styles.totalPrice}>
+        {((item.product.price.main + item.product.price.fractional / 100) * item.quantity).toFixed(2) + ' zł'}
       </p>
     </div>
   )

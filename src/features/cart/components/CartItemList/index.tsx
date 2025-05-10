@@ -1,6 +1,7 @@
 import React from 'react'
 import CartItem from '../CartItem'
 import type { CartItem as CartItemType } from '../../types'
+import styles from './CartItemList.module.css'
 
 type CartItemListProps = {
   items: CartItemType[]
@@ -9,7 +10,7 @@ type CartItemListProps = {
 
 const CartItemList: React.FC<CartItemListProps> = ({ items, onChangeQuantity }) => {
   return (
-    <ul className="cartItemList">
+    <ul className={styles.list}>
       {items.map(item => (
         <li key={item.product.id}>
           <CartItem item={item} onChangeQuantity={onChangeQuantity} />
