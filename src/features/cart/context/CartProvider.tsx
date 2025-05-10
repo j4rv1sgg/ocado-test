@@ -40,12 +40,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     setItems([]);
   };
 
-  const getTotalPrice = () => {
-    return items.reduce(
-      (total, item) => total + item.product.price.main * item.quantity,
-      0
-    );
-  };
+ const getTotalPrice = () => {
+  const totalPrice = items.reduce(
+    (total, item) => total + (item.product.price.main + item.product.price.fractional / 100) * item.quantity,
+    0
+  );
+  return Number(totalPrice.toFixed(2));
+};
 
   return (
     <CartContext.Provider

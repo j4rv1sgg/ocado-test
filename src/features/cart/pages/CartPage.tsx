@@ -1,9 +1,15 @@
-import CartItemList from "../components/CartItemList";
-import { useCart } from "../hooks/useCart";
+import CartItemList from '../components/CartItemList';
+import { useCart } from '../hooks/useCart';
 
 const Cart: React.FC = () => {
-  const {items, updateQuantity} = useCart();
-  return <CartItemList items={items} onChangeQuantity={updateQuantity} />;
+  const { items, updateQuantity, getTotalPrice } = useCart();
+  return (
+    <>
+      <h1>Koszyk</h1>
+      <CartItemList items={items} onChangeQuantity={updateQuantity} />
+      <p>Łączna cena: {getTotalPrice()} zł</p>
+    </>
+  );
 };
 
 export default Cart;
