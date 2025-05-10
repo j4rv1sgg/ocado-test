@@ -1,7 +1,11 @@
 .cartItem{
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .totalPrice{
   font-weight: bold;
+}
+.removeButton{
+  height: 40px;
 }
