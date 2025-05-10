@@ -49,6 +49,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   return Number(totalPrice.toFixed(2));
 };
 
+  const saveOrderToLocalStorage = () => {
+    localStorage.setItem('lastOrder', JSON.stringify({
+      items: items,
+      totalPrice: getTotalPrice()
+    }));
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -58,6 +65,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         updateQuantity,
         clearCart,
         getTotalPrice,
+        saveOrderToLocalStorage
       }}
     >
       {children}

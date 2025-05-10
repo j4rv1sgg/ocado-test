@@ -4,10 +4,9 @@ import type { CartItem } from '@/features/cart/types'
 
 interface OrderSummaryProps {
   items: CartItem[];
-  totalPrice: number
 }
 
-const OrderList: React.FC<OrderSummaryProps> = ({ items, totalPrice }) => {
+const OrderList: React.FC<OrderSummaryProps> = ({ items }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
@@ -25,7 +24,6 @@ const OrderList: React.FC<OrderSummaryProps> = ({ items, totalPrice }) => {
           </li>
         ))}
       </ul>
-      <b>Łączna kwota: {totalPrice} zł</b>
     </div>
   )
 }

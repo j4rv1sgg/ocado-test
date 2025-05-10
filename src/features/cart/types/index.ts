@@ -7,6 +7,7 @@ export interface CartContextType {
   updateQuantity: (productId: number, quantity: number) => void;
   clearCart: () => void;
   getTotalPrice: () => number;
+  saveOrderToLocalStorage: () => void;
 }
 export interface CartItem {
   product: Product;

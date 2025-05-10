@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potwierdzenie zamówienia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .confirmation-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 5px;
+    }
+    .confirmation-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .order-items {
+      margin-bottom: 30px;
+    }
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+    .item-name {
+      flex: 1;
+    }
+    .item-quantity {
+      flex: 0 0 100px;
+      text-align: center;
+    }
+    .item-price {
+      flex: 0 0 120px;
+      text-align: right;
+    }
+    .order-total {
+      text-align: right;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .empty-order {
+      text-align: center;
+      color: #757575;
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmation-container">
+    <h1 class="confirmation-header">Zamówienie złożone pomyślnie!</h1>
+    
+    <div id="order-details">
+    </div>
+    
+    <a href="/" class="back-link" id="back-to-shop">Wróć do sklepu</a>
+  </div>
+
+  <script>
+    function formatPrice(price) {
+      return price.toFixed(2).replace('.', ',') + ' zł';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const orderDetailsElement = document.getElementById('order-details');
+      const storedOrder = localStorage.getItem('lastOrder');
+      
+      if (storedOrder) {
+        const order = JSON.parse(storedOrder);
+        
+        if (order.items && order.items.length > 0) {
+          const orderItemsDiv = document.createElement('div');
+          orderItemsDiv.className = 'order-items';
+          
+          const headerDiv = document.createElement('div');
+          headerDiv.className = 'order-item';
+          headerDiv.innerHTML = `
+            <strong class="item-name">Produkt</strong>
+            <strong class="item-quantity">Ilość</strong>
+            <strong class="item-price">Cena</strong>
+          `;
+          orderItemsDiv.appendChild(headerDiv);
+          
+          order.items.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'order-item';
+            
+            const itemPrice = item.product.price.main + item.product.price.fractional / 100;
+            const totalItemPrice = itemPrice * item.quantity;
+            
+            itemDiv.innerHTML = `
+              <span class="item-name">${item.product.name}</span>
+              <span class="item-quantity">x ${item.quantity}</span>
+              <span class="item-price">${formatPrice(totalItemPrice)}</span>
+            `;
+            
+            orderItemsDiv.appendChild(itemDiv);
+          });
+          
+          const totalDiv = document.createElement('div');
+          totalDiv.className = 'order-total';
+          totalDiv.innerHTML = `<strong>Suma zamówienia: ${formatPrice(order.totalPrice)}</strong>`;
+          
+          orderDetailsElement.appendChild(orderItemsDiv);
+          orderDetailsElement.appendChild(totalDiv);
+        } else {
+          orderDetailsElement.innerHTML = '<p class="empty-order">Brak szczegółów zamówienia.</p>';
+        }
+      } else {
+        orderDetailsElement.innerHTML = '<p class="empty-order">Brak szczegółów zamówienia.</p>';
+      }
+      
+      document.getElementById('back-to-shop').addEventListener('click', function() {
+        sessionStorage.setItem('fromConfirmation', 'true');
+      });
+    });
+  </script>
+</body>
+</html>
