@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import type { CartItem, Product } from '../types';
 import { CartContext } from './CartContext';
+import type { CartItem } from '../types';
+import type { Product } from '@/features/products/types';
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

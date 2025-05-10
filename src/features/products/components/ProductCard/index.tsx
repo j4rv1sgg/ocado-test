@@ -1,7 +1,7 @@
 import React from 'react'
-import type { Product } from '../../../cart/types'
-import { useCart } from '../../../cart/hooks/useCart'
+import { useCart } from '@/features/cart/hooks/useCart';
 import styles from './ProductCard.module.css';
+import type { Product } from '../../types';
 
 interface ProductCardProps {
   product: Product
