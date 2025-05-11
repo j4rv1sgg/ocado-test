@@ -1,11 +1,59 @@
-.cartItem{
+.cartItem {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
+  background-color: #f9f9f9;
+  
 }
-.totalPrice{
+
+.title {
+  font-size: 18px;
   font-weight: bold;
+  margin: 0;
 }
-.removeButton{
-  height: 40px;
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantityButton {
+  height: 24px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7e7e7;
+
+}
+
+.input {
+  width: 40px;
+  text-align: center;
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.totalPrice {
+  font-weight: bold;
+  color: #333;
+}
+
+.removeButton {
+  padding: 4px 8px;
+  font-size: 14px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+
+.removeButton:hover {
+  background-color: #c0392b;
 }

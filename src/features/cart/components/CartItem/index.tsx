@@ -34,8 +34,9 @@ const CartItem: React.FC<CartItemProps> = ({
       <h3 className={styles.title}>{item.product.name}</h3>
       <p className={styles.price}>
         {item.product.price.main}.{item.product.price.fractional} zł x{' '}
-        <button 
-          onClick={decrementQuantity} 
+        <button
+          className={styles.quantityButton}
+          onClick={decrementQuantity}
           disabled={item.quantity >= 99}
         >
           -
@@ -48,25 +49,26 @@ const CartItem: React.FC<CartItemProps> = ({
           max={99}
           className={styles.input}
         />
-        <button 
-          onClick={incrementQuantity} 
+        <button
+          className={styles.quantityButton}
+          onClick={incrementQuantity}
           disabled={item.quantity >= 99}
         >
           +
         </button>
       </p>
-        <p className={styles.totalPrice}>
-          {(
-            (item.product.price.main + item.product.price.fractional / 100) *
-            item.quantity
-          ).toFixed(2) + ' zł'}
-        </p>
-        <button
-          className={styles.removeButton}
-          onClick={() => onRemoveItem(item.product.id)}
-        >
-          Usuń
-        </button>
+      <p className={styles.totalPrice}>
+        {(
+          (item.product.price.main + item.product.price.fractional / 100) *
+          item.quantity
+        ).toFixed(2) + ' zł'}
+      </p>
+      <button
+        className={styles.removeButton}
+        onClick={() => onRemoveItem(item.product.id)}
+      >
+        Usuń
+      </button>
     </div>
   );
 };
