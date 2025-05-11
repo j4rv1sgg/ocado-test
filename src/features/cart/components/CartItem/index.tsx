@@ -17,12 +17,29 @@ const CartItem: React.FC<CartItemProps> = ({
     const quantity = parseInt(event.target.value, 10);
     onChangeQuantity(item.product.id, quantity);
   };
+  const incrementQuantity = () => {
+    if (item.quantity < 99) {
+      onChangeQuantity(item.product.id, item.quantity + 1);
+    }
+  };
+
+  const decrementQuantity = () => {
+    if (item.quantity > 1) {
+      onChangeQuantity(item.product.id, item.quantity - 1);
+    }
+  };
 
   return (
     <div className={styles.cartItem}>
       <h3 className={styles.title}>{item.product.name}</h3>
       <p className={styles.price}>
         {item.product.price.main}.{item.product.price.fractional} zł x{' '}
+        <button 
+          onClick={decrementQuantity} 
+          disabled={item.quantity >= 99}
+        >
+          -
+        </button>
         <input
           type="number"
           value={item.quantity}
@@ -31,6 +48,12 @@ const CartItem: React.FC<CartItemProps> = ({
           max={99}
           className={styles.input}
         />
+        <button 
+          onClick={incrementQuantity} 
+          disabled={item.quantity >= 99}
+        >
+          +
+        </button>
       </p>
         <p className={styles.totalPrice}>
           {(

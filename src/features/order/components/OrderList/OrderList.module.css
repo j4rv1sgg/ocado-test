@@ -1,7 +1,45 @@
-.item{
-  display: flex;
-  justify-content: space-between;
+.orderDetails {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.list{
-  list-style: none;
+
+.orderItems {
+  margin-bottom: 20px;
+}
+
+.orderItem {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.orderItem:first-child {
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.itemName {
+  text-align: left;
+}
+
+.itemUnitPrice {
+  text-align: right;
+  min-width: 80px;
+}
+
+.itemQuantity {
+  text-align: center;
+  min-width: 60px;
+}
+
+.itemPrice {
+  text-align: right;
+  min-width: 100px;
 }
