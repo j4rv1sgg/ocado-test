@@ -7,7 +7,7 @@ const OrderSummaryPage: React.FC = () => {
     const handlePlaceOrder = () => {
     saveOrderToLocalStorage();
     
-    window.location.href = '/confirmation.html';
+    window.location.href = '/ocado-test/confirmation.html';
   };
   return (
     <>

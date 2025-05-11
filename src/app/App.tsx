@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { CartProvider } from '@/features/cart/context/CartProvider.tsx';
 import AppRoutes from './routes.tsx';
 import { Layout } from './Layout/index.tsx';
