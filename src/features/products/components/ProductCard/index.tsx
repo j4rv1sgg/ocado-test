@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCart } from '@/features/cart/hooks/useCart';
+import { useCart } from '@/shared/hooks/useCart';
 import styles from './ProductCard.module.css';
 import type { Product } from '../../types';
 

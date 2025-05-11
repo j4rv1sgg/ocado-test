@@ -1,5 +1,5 @@
 import CartItemList from '@/features/cart/components/CartItemList';
-import { useCart } from '@/features/cart/hooks/useCart';
+import { useCart } from '@/shared/hooks/useCart';
 import { Link } from 'react-router-dom';
 
 const Cart: React.FC = () => {

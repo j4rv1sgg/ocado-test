@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# E-commerce Store Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple e-commerce store client with product browsing, shopping cart, and order processing functionality.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Demo Link](https://j4rv1sgg.github.io/ocado-test/)
 
-## Expanding the ESLint configuration
+## Approach
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The project is built using a feature-based architecture to ensure clear separation of concerns and scalability:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **features/** - Isolated business modules (cart, products)
+- **app/** - Core application and routing
+- **shared/** - Common utilities and components
+
+## Running the Project
+
+### Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Visit http://localhost:5173/ in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Other Commands
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
+
+## Technologies Used
+
+- TypeScript
+- React
+- Vite
+- CSS Modules

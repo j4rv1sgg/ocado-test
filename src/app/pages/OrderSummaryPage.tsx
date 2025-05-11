@@ -1,12 +1,12 @@
-import { useCart } from '@/features/cart/hooks/useCart';
+import { useCart } from '@/shared/hooks/useCart';
 import OrderSummary from '@/features/order/components/OrderList';
 import { Link } from 'react-router-dom';
 
 const OrderSummaryPage: React.FC = () => {
-  const { items, getTotalPrice, saveOrderToLocalStorage } = useCart();
+  const { items, getTotalPrice, saveOrderToLocalStorage, clearCart } = useCart();
     const handlePlaceOrder = () => {
     saveOrderToLocalStorage();
-    
+    clearCart();
     window.location.href = '/ocado-test/confirmation.html';
   };
   return (
